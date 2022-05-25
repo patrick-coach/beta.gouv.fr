@@ -37,7 +37,7 @@ function convertDate(inputFormat) {
     var d = new Date(inputFormat)
     return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/')
   }
-  
+
 
 var createAuthorCard = function(author) {
     var card = document.createElement('div');
@@ -71,7 +71,7 @@ var createAuthorCard = function(author) {
         }
     }
     const incubator = author.incubator ? incubators.find(incubator => incubator.id === author.incubator) : undefined
-    var avatarHTML = `<img class="lozad avatar-rounded" data-src="${avatarSrc}" title="${author.fullname}" alt="" data-proofer-ignore>`
+    var avatarHTML = `<a class="lazy-load avatar-rounded" href="${avatarSrc}"></a>`
     card.innerHTML = `<div class="fr-card fr-card--no-arrow fr-card__img__rounded">
             <div class="fr-card__body">
                 <h3 class="fr-card__title">
@@ -80,7 +80,7 @@ var createAuthorCard = function(author) {
                 <p class="fr-card__detail">
                     ${timestampNow > authorEndDate ? 'Alumni' : author.role }
                 </p>
-                ${author.content ? '<p class="fr-card__desc">' + author.content + '</p>' : ''}        
+                ${author.content ? '<p class="fr-card__desc">' + author.content + '</p>' : ''}
                 ${totalCount ? '<ul class="fr-tags-group">' + totalStartups.map((s,i) => createStartupTag(s, author, i, extraCount)).join('') + '</u>' : ''}
                 ${(authorEndDate >= timestampNow && incubator) ? `<p class="fr-card__detail">
                     <a href="/startups/?incubateur=${author.incubator}" class="fr-tag fr-tag--sm" target="_self">
@@ -139,7 +139,7 @@ var createIncubatorSelect = function(members, incubators, initValue) {
             documentFragmentCurrents.appendChild(currentsToDisplay[j].html)
         }
         var gridCurrents = document.getElementsByClassName('authors')[0];
-        gridCurrents.innerHTML = "" 
+        gridCurrents.innerHTML = ""
         gridCurrents.appendChild(documentFragmentCurrents)
         var countCurrentsElement = document.getElementById('currents-count');
         countCurrentsElement.innerHTML = currentsToDisplay.length
@@ -149,14 +149,14 @@ var createIncubatorSelect = function(members, incubators, initValue) {
             documentFragmentAlumnis.appendChild(alumnisToDisplay[j].html)
         }
         var gridAlumnis = document.getElementsByClassName('alumnis')[0];
-        gridAlumnis.innerHTML = "" 
+        gridAlumnis.innerHTML = ""
         gridAlumnis.appendChild(documentFragmentAlumnis)
         var countAlumnisElement = document.getElementById('alumnis-count');
         countAlumnisElement.innerHTML = alumnisToDisplay.length
-        
-        if (window.lozad) {
-            const observer = lozad();
-            observer.observe();
+
+        // call Lazy loading (accessible-image-lazy-load.js)
+        if (typeof gandul !== "undefined") {
+          gandul();
         }
     };
     if (initValue) {

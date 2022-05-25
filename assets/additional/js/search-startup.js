@@ -38,11 +38,7 @@ var createStartupCard = function(startup) {
                 <p class="fr-card__desc">${ startup.attributes.pitch }</p>
             </div>
             <div class="fr-card__img">
-                <img class="screenshot lozad"
-                    data-src="${startup.attributes['screenshot-url']}"
-                    title="${startup.attributes.name} est encore en travaux"
-                    alt=""
-                    data-proofer-ignore>
+                <a class="screenshot lazy-load" href="${startup.attributes['screenshot-url']}"></a>
             </div>
         </div>`
     return card
@@ -128,12 +124,8 @@ var updateCards = function(data) {
         for (var j = 0; j < dataToDisplay.length; j++) {
             documentFragment.appendChild(dataToDisplay[j].html)
         }
-        grid.innerHTML = "" 
+        grid.innerHTML = ""
         grid.appendChild(documentFragment)
-        if (window.lozad) {
-            const observer = lozad();
-            observer.observe();
-        }
     }
     if (!count) {
         displayNoDataMessage(true)
@@ -174,6 +166,10 @@ var createIncubatorSelect = function(data, incubators, initValue) {
         const urlParams = new URLSearchParams(window.location.search);
         urlParams.set('incubateur', value);
         history.replaceState(null, null, window.location.origin + window.location.pathname + '?' + urlParams);
+        // call Lazy loading (accessible-image-lazy-load.js)
+        if (typeof gandul !== "undefined") {
+          gandul();
+        }
     });
 }
 
