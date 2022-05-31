@@ -71,7 +71,7 @@ var createAuthorCard = function(author) {
         }
     }
     const incubator = author.incubator ? incubators.find(incubator => incubator.id === author.incubator) : undefined
-    var avatarHTML = `<a class="lazy-load avatar-rounded" href="${avatarSrc}"></a>`
+    var avatarHTML = `<a class="gandul avatar-rounded" href="${avatarSrc}"></a>`
     card.innerHTML = `<div class="fr-card fr-card--no-arrow fr-card__img__rounded">
             <div class="fr-card__body">
                 <h3 class="fr-card__title">

@@ -38,7 +38,7 @@ var createStartupCard = function(startup) {
                 <p class="fr-card__desc">${ startup.attributes.pitch }</p>
             </div>
             <div class="fr-card__img">
-                <a class="screenshot lazy-load" href="${startup.attributes['screenshot-url']}"></a>
+                <a class="screenshot gandul" href="${startup.attributes['screenshot-url']}"></a>
             </div>
         </div>`
     return card

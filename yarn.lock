@@ -7,6 +7,11 @@
   "resolved" "https://registry.npmjs.org/@gouvfr/dsfr/-/dsfr-1.0.0-rc1.0.tgz"
   "version" "1.0.0-rc1.0"
 
+"accessible-image-lazy-load@^1.3.2":
+  "integrity" "sha512-eKudg7csNh7Zih15tFxUvx4wn5ggXQCkb1AocWNr0mPPoMma+eUl+Dd3ZfD6Zgg1Lrm4Qf9HKS6dFsg4T0FvLg=="
+  "resolved" "https://registry.npmjs.org/accessible-image-lazy-load/-/accessible-image-lazy-load-1.3.2.tgz"
+  "version" "1.3.2"
+
 "remixicon@^2.5.0":
   "integrity" "sha512-q54ra2QutYDZpuSnFjmeagmEiN9IMo56/zz5dDNitzKD23oFRw77cWo4TsrAdmdkPiEn8mxlrTqxnkujDbEGww=="
   "resolved" "https://registry.npmjs.org/remixicon/-/remixicon-2.5.0.tgz"

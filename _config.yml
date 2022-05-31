@@ -63,6 +63,8 @@ copy_to_dest:
     target: assets/gouvfr/fonts/
   - source: node_modules/@gouvfr/dsfr/dist/js/.
     target: assets/gouvfr/js/
+  - source: node_modules/accessible-image-lazy-load/dist/.
+    target: assets/accessible-image-lazy-load/js
 
 excerpt_separator: <!--more-->
 
