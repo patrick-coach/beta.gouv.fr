@@ -126,6 +126,10 @@ var updateCards = function(data) {
         }
         grid.innerHTML = ""
         grid.appendChild(documentFragment)
+         // call Lazy loading (accessible-image-lazy-load.js)
+        if (typeof gandul !== "undefined") {
+          gandul();
+        }
     }
     if (!count) {
         displayNoDataMessage(true)
@@ -166,10 +170,6 @@ var createIncubatorSelect = function(data, incubators, initValue) {
         const urlParams = new URLSearchParams(window.location.search);
         urlParams.set('incubateur', value);
         history.replaceState(null, null, window.location.origin + window.location.pathname + '?' + urlParams);
-        // call Lazy loading (accessible-image-lazy-load.js)
-        if (typeof gandul !== "undefined") {
-          gandul();
-        }
     });
 }
 
